@@ -1,2 +1,0 @@
-sdcsdcs	dadas
-ssde
