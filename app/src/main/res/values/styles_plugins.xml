@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Plugins -->
+
+    <style name="PluginPatternContainer">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_margin">32dp</item>
+    </style>
+
+    <style name="PluginLabel">
+        <item name="android:layout_width">60dp</item>
+    </style>
+
+    <style name="PluginAction">
+        <item name="android:backgroundTint">@color/secondary</item>
+        <item name="android:tint">@color/secondaryText</item>
+    </style>
+</resources>

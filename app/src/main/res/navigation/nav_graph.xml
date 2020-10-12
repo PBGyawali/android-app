@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/nav_dashboard">
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="de.thkoeln.colab.fearlesschange.view.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/dashboard_fragment">
+        <action
+            android:id="@+id/action_nav_dashboard_to_patternDetailFragment"
+            app:destination="@id/patternDetailSwipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="de.thkoeln.colab.fearlesschange.view.favorites.FavoritesFragment"
+        android:label="@string/title_favorites"
+        tools:layout="@layout/favorites_fragment">
+        <action
+            android:id="@+id/action_nav_favorites_to_patternDetailSwipeFragment"
+            app:destination="@id/patternDetailSwipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_more"
+        android:name="de.thkoeln.colab.fearlesschange.view.more.MoreFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/more_fragment" />
+    <fragment
+        android:id="@+id/nav_cards"
+        android:name="de.thkoeln.colab.fearlesschange.view.overview.CardsFragment"
+        android:label="overview_fragment"
+        tools:layout="@layout/pattern_cards_fragment">
+        <action
+            android:id="@+id/action_nav_cards_to_patternDetailSwipeFragment"
+            app:destination="@id/patternDetailSwipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/patternDetailSwipeFragment"
+        android:name="de.thkoeln.colab.fearlesschange.view.pattern.swiper.PatternDetailSwiperFragment"
+        android:label="pattern_detail_fragment">
+        <action
+            android:id="@+id/action_patternDetailSwipeFragment_to_patternNotesFragment"
+            app:destination="@id/patternNotesFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/action_patternDetailSwipeFragment_to_createNoteFragment"
+            app:destination="@id/createNoteFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="patternIds"
+            app:argType="long[]" />
+        <argument
+            android:name="currentPatternId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/randomPatternFragment"
+        android:name="de.thkoeln.colab.fearlesschange.view.dashboard.plugins.RandomPatternFragment"
+        android:label="RandomPatternFragment">
+        <argument
+            android:name="groupId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/patternDetailFragment"
+        android:name="de.thkoeln.colab.fearlesschange.view.patternData.detail.PatternDetailFragment"
+        android:label="PatternDetailFragment">
+        <argument
+            android:name="patternId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/patternNotesFragment"
+        android:name="de.thkoeln.colab.fearlesschange.view.notes.PatternNotesFragment"
+        android:label="PatternNotesFragment">
+        <action
+            android:id="@+id/action_patternNotesFragment_to_createNoteFragment"
+            app:destination="@id/createNoteFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <argument
+            android:name="patternId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="de.thkoeln.colab.fearlesschange.view.search.SearchFragment"
+        android:label="search_fragment"
+        tools:layout="@layout/search_fragment">
+        <action
+            android:id="@+id/action_nav_search_to_patternDetailSwipeFragment"
+            app:destination="@id/patternDetailSwipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNoteFragment"
+        android:name="de.thkoeln.colab.fearlesschange.view.notes.CreateNoteFragment"
+        android:label="create_note_fragment"
+        tools:layout="@layout/create_note_fragment">
+        <argument
+            android:name="patternId"
+            app:argType="long" />
+        <argument
+            android:name="hide_nav"
+            android:defaultValue="true"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_notes"
+        android:name="de.thkoeln.colab.fearlesschange.view.notes.NotesFragment"
+        android:label="notes_fragment">
+        <action
+            android:id="@+id/action_nav_notes_to_patternDetailSwipeFragment"
+            app:destination="@id/patternDetailSwipeFragment" />
+    </fragment>
+</navigation>
